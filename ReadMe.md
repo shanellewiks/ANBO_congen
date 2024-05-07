@@ -26,5 +26,14 @@
 #### The LFMM for first year since first _Bd_ detection yielded no candidate loci, while the LFMM for _Bd_ prevalence yielded 14 SNP's
 #### The RDA yielded 549 SNP's, which included all SNP's from the LFMM.
 
-###File structure
-####ANBO_data: 
+### File structure
+#### [ANBO_data](https://github.com/shanellewiks/ANBO_congen/tree/main/ANBO_data):
+* Bd_BodyCondition_clean.csv: Csv file with boreal toad individuals and their correponding Bd and condy condiion data
+* Bd_BodyCondition_clean.xml: Excel file of the same data 
+* mec17175-sup-0001-appendixs1.docx: Supplementary materials from Trumbo et al. 2023
+
+#### [Scripts](https://github.com/shanellewiks/ANBO_congen/tree/main/Scripts):R scripts
+* Downsampling_genoscapeRtools.R: genoscapeRtools script for downsampling
+* LFMM.R: Script for running LFMM
+* RDA.R: Script for running RDA
+* Datacheck.R: Please ignore. Personal script for checking data.
