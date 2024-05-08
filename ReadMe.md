@@ -38,3 +38,12 @@
 * LFMM.R: Script for running LFMM
 * RDA.R: Script for running RDA
 * Datacheck.R: Please ignore. Personal script for checking data.
+
+
+### Challenges
+##### Although I decided not to do a GWAS due to the lack of sufficient sample size, this was also in part being unable to impute my files and obtain output files that would let me run a GWAS.
+##### My first attempt at imputing was using the [grur package](https://thierrygosselin.github.io/grur/articles/rad_genomics_computer_setup.html), which was developed to impute Radseq data. Unfortunately, this package and some of its dependencies are no longer supported in R. Even compiling packages locally proved impossible for me. 
+##### I then tried to impute using [Beagle 4.1](https://faculty.washington.edu/browning/beagle/b4_1.html). Once again, this proved challenging since the loci in the vcf file were not sorted in order. After some attempts at sorting this (including using BCFtools sort and some awk use), I reached another dead end. 
+##### My final attempt at imputing was using [LinkImputer](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-3873-5). This seemed to work at the start, however, this gave me several errors and also proved to be a dead end. 
+##### The simple imputation in R for GEA using the most common genotypes was helpful for those analyses. However, I couldn't find a way to export these filed into the input files required to run GWAS (.vsf's or .ped files from Plink).
+##### Although I am disappointed that I could not run a GWAS for this project, I now have some experience doing GEA, which is an analysis I will actually be doing for my dissertation, so I have some practice now!
