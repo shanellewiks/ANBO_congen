@@ -5,7 +5,7 @@
 ##### Recently, _Bd_ load data was obtained from these individuals. My initial goal for this class project was to conduct a GWAS and estimate heritability for the for _Bd_ load. Given some constrains, I haven't been able to do this, so instead I conducted GEA with the _Bd_ prevalence data and time of first _Bd_ detection in the paper. Trumbo et al. 2023 conducted an RDA for these _Bd_ variables. I attempted to replicate this RDA and in addition do an LFMM to see if there were overlapp in candidate adaptive loci between the two analyses (spoiler: all the RDA loci included the 14 LFMM loci). This is still beneficial for me since I will very likely be doing GEA analyses for my PhD research.
 
 ## My workflow
-##### For this study, sequences were filtered and aligned to a _A. boreas_ reference genome which was developed as part of this study. I started with the resulting .vcf file from this alignment (see Trumb et al. 2023 for details0. 
+##### For this study, sequences were filtered and aligned to a _A. boreas_ reference genome which was developed as part of this study. I started with the resulting .vcf file from this alignment (see Trumb et al. 2023 for details). 
 ### Downsampling
 ##### GEA analyses require no missing data genotypes at every locus. Therefore, my first step to downsample as much as I could prior to imputing data.
 * I used the [genoscapeRtools](https://github.com/eriqande/genoscapeRtools) package to downsample.
