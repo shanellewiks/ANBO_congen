@@ -8,13 +8,15 @@
 ##### For this study, sequences were filtered and aligned to a _A. boreas_ reference genome which was developed as part of this study. I started with the resulting .vcf file from this alignment (see Trumb et al. 2023 for details0. 
 ### Downsampling
 ##### GEA analyses require no missing data genotypes at every locus. Therefore, my first step to downsample as much as I could prior to imputing data.
-##### To downsample, I used the [genoscapeRtools](https://github.com/eriqande/genoscapeRtools) package.
-##### This included using vcftools to first create 012 files which are required for downsampling. 
-##### These files are in the VCF_out folder.
-##### I ended up downsampling such that I had no individuals with >13% missing data.I retained 212 individuals (80% of current samples).
-##### The output includes a set of subsamples 012 files, which I imported back onto Alpine with Globus. These files are in the cleaned_indv212_pos3000 folder.
-##### I then used vcftools --keep to subsample my original populations.snp.vcf file. 
-#### #The downsampled .vcf file is in the Downsampled folder.
+* I used the [genoscapeRtools](https://github.com/eriqande/genoscapeRtools) package to downsample.
+* First I used vcftools to create 012 files which are required for downsampling. 
+* These files are in the VCF_out folder.
+* I ended up downsampling such that I had no individuals with >13% missing data.
+* I retained 212 individuals (80% of current samples).
+* The output includes a set of subsamples 012 files, which I imported back onto Alpine with Globus. These files are in the cleaned_indv212_pos3000 folder.
+* I then used vcftools --keep to subsample my original populations.snp.vcf file. 
+* The downsampled .vcf file is in the Downsampled folder.
+
 ### GEA in R
 ##### I conducted two types of GEA analysis in R studio; LFMM and RDA.
 ##### I followed the [script](https://bookdown.org/hhwagner1/LandGenCourse_book/WE_11.html#WE_11) developed by Brenna Forester to conducuct the GEA's.
