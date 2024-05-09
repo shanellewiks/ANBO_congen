@@ -30,14 +30,15 @@ $mv out* vcf_012
 $vcftools --vcf populations.snps.vcf --out Downsampled/cleaned_212I_3KP  --keep cleaned_indv212_pos30000/cleaned_indv212_pos30000.012.indv --positions cleaned_indv212_pos30000/cleaned_indv212_pos30000.012.pos --recode
 ```
 ### GEA in R
-##### I conducted two types of GEA analysis in R studio; LFMM and RDA.
-##### I followed the [script](https://bookdown.org/hhwagner1/LandGenCourse_book/WE_11.html#WE_11) developed by Brenna Forester to conducuct the GEA's.
-##### The individual scripts for the LFMM and RDA that I performed are in the Scripts folder.
-##### Prior to conducting the analyses, I cleaned the _Bd_ data and genetic data such that only samples in both data sets were included. 
-##### I used a simple imputation method in R that used the most common genotype at a locus to impute the missing genotypes.
+* I conducted two types of GEA analysis in R studio; LFMM and RDA.
+* I followed the [script](https://bookdown.org/hhwagner1/LandGenCourse_book/WE_11.html#WE_11) developed by Brenna Forester for the GEA's.
+* The individual scripts for the LFMM and RDA that I performed are in the Scripts folder.
+* Prior to conducting the analyses, I cleaned the _Bd_ data and genetic data such that only samples in both data sets were included. 
+* I used a simple imputation method in R that used the most common genotype at a locus to impute the missing genotypes.
+
 ### Results
-##### The LFMM for first year since first _Bd_ detection yielded no candidate loci, while the LFMM for _Bd_ prevalence yielded 14 SNP's
-##### The RDA yielded 549 SNP's, which included all SNP's from the LFMM.
+* The LFMM for first year since first _Bd_ detection yielded no candidate loci, while the LFMM for _Bd_ prevalence yielded 14 SNP's
+* The RDA yielded 549 SNP's, which included all SNP's from the LFMM.
 
 ### File structure
 #### [ANBO_data](https://github.com/shanellewiks/ANBO_congen/tree/main/ANBO_data):
@@ -45,7 +46,7 @@ $vcftools --vcf populations.snps.vcf --out Downsampled/cleaned_212I_3KP  --keep 
 * Bd_BodyCondition_clean.xml: Excel file of the same data 
 * mec17175-sup-0001-appendixs1.docx: Supplementary materials from Trumbo et al. 2023
 
-#### [Scripts](https://github.com/shanellewiks/ANBO_congen/tree/main/Scripts):R scripts
+#### [Scripts](https://github.com/shanellewiks/ANBO_congen/tree/main/Scripts): R scripts
 * Downsampling_genoscapeRtools.R: genoscapeRtools script for downsampling
 * LFMM.R: Script for running LFMM
 * RDA.R: Script for running RDA
