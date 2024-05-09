@@ -357,18 +357,18 @@ display: none;
 Project</h1>
 <div id="adaptive-landscape-genetics-on-the-boreal-toad" class="section level2">
 <h2>Adaptive landscape genetics on the Boreal toad</h2>
-<div id="this-data-is-obtained-from-trumbo-et-al.-2023.-this-is-a-conservation-landscape-genomics-study-on-the-rocky-mountain-ecoregion-srm-of-boreal-toads-anaxyrus-boreas.-populations-of-this-species-are-threatened-by-chytrid-fungus-batrachochytrium-dendrobatidis-bd.-the-study-used-ddradseq-to-sequence-individuals-to-look-at-standard-metrics-of-genetic-diversity-environmental-factors-mediating-geneflow-and-loci-associated-with-environment." class="section level4">
-<h4>This data is obtained from <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17175">Trumbo
+<div id="this-data-is-obtained-from-trumbo-et-al.-2023.-this-is-a-conservation-landscape-genomics-study-on-the-rocky-mountain-ecoregion-srm-of-boreal-toads-anaxyrus-boreas.-populations-of-this-species-are-threatened-by-chytrid-fungus-batrachochytrium-dendrobatidis-bd.-the-study-used-ddradseq-to-sequence-individuals-to-look-at-standard-metrics-of-genetic-diversity-environmental-factors-mediating-geneflow-and-loci-associated-with-environment." class="section level5">
+<h5>This data is obtained from <a href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17175">Trumbo
 et al. 2023</a>. This is a conservation landscape genomics study on the
 Rocky Mountain ecoregion (SRM) of Boreal Toads (<em>Anaxyrus
 boreas</em>). Populations of this species are threatened by chytrid
 fungus <em>Batrachochytrium dendrobatidis</em> (Bd). The study used
 ddRADseq to sequence individuals to look at standard metrics of genetic
 diversity, environmental factors mediating geneflow, and loci associated
-with environment.</h4>
+with environment.</h5>
 </div>
-<div id="recently-bd-load-data-was-obtained-from-these-individuals.-my-initial-goal-for-this-class-project-was-to-conduct-a-gwas-and-estimate-heritability-for-the-for-bd-load.-given-some-constrains-i-havent-been-able-to-do-this-so-instead-i-conducted-gea-with-the-bd-prevalence-data-and-time-of-first-bd-detection-in-the-paper.-trumbo-et-al.-2023-conducted-an-rda-for-these-bd-variables.-i-attempted-to-replicate-this-rda-and-in-addition-do-an-lfmm-to-see-if-there-were-overlapp-in-candidate-adaptive-loci-between-the-two-analyses-spoiler-all-the-rda-loci-included-the-14-lfmm-loci.-this-is-still-beneficial-for-me-since-i-will-very-likely-be-doing-gea-analyses-for-my-phd-research." class="section level4">
-<h4>Recently <em>Bd</em> load data was obtained from these individuals.
+<div id="recently-bd-load-data-was-obtained-from-these-individuals.-my-initial-goal-for-this-class-project-was-to-conduct-a-gwas-and-estimate-heritability-for-the-for-bd-load.-given-some-constrains-i-havent-been-able-to-do-this-so-instead-i-conducted-gea-with-the-bd-prevalence-data-and-time-of-first-bd-detection-in-the-paper.-trumbo-et-al.-2023-conducted-an-rda-for-these-bd-variables.-i-attempted-to-replicate-this-rda-and-in-addition-do-an-lfmm-to-see-if-there-were-overlapp-in-candidate-adaptive-loci-between-the-two-analyses-spoiler-all-the-rda-loci-included-the-14-lfmm-loci.-this-is-still-beneficial-for-me-since-i-will-very-likely-be-doing-gea-analyses-for-my-phd-research." class="section level5">
+<h5>Recently, <em>Bd</em> load data was obtained from these individuals.
 My initial goal for this class project was to conduct a GWAS and
 estimate heritability for the for <em>Bd</em> load. Given some
 constrains, I haven’t been able to do this, so instead I conducted GEA
@@ -378,89 +378,149 @@ detection in the paper. Trumbo et al. 2023 conducted an RDA for these
 do an LFMM to see if there were overlapp in candidate adaptive loci
 between the two analyses (spoiler: all the RDA loci included the 14 LFMM
 loci). This is still beneficial for me since I will very likely be doing
-GEA analyses for my PhD research.</h4>
+GEA analyses for my PhD research.</h5>
 </div>
 </div>
 <div id="my-workflow" class="section level2">
 <h2>My workflow</h2>
-<div id="downsampling" class="section level3">
-<h3>Downsampling</h3>
-<div id="for-this-study-sequences-were-filtered-and-aligned-to-a-a.-boreas-reference-genome-which-was-developed-as-part-of-this-study.-i-started-with-the-resulting-.vcf-file-from-this-alignment-see-trumb-et-al.-2023-for-details0." class="section level4">
-<h4>For this study, sequences were filtered and aligned to a <em>A.
+<div id="for-this-study-sequences-were-filtered-and-aligned-to-a-a.-boreas-reference-genome-which-was-developed-as-part-of-this-study.-i-started-with-the-resulting-.vcf-file-from-this-alignment-see-trumb-et-al.-2023-for-details." class="section level5">
+<h5>For this study, sequences were filtered and aligned to a <em>A.
 boreas</em> reference genome which was developed as part of this study.
 I started with the resulting .vcf file from this alignment (see Trumb et
-al. 2023 for details0.</h4>
+al. 2023 for details).</h5>
 </div>
-<div id="gea-analyses-require-no-missing-data-genotypes-at-every-locus." class="section level4">
-<h4>GEA analyses require no missing data genotypes at every locus.</h4>
-</div>
-<div id="therefore-my-first-step-to-downsample-as-much-as-i-could-prior-to-imputing-data." class="section level4">
-<h4>Therefore, my first step to downsample as much as I could prior to
-imputing data.</h4>
-</div>
-<div id="to-downsample-i-used-the-genoscapertools-package." class="section level4">
-<h4>To downsample, I used the <a href="https://github.com/eriqande/genoscapeRtools">genoscapeRtools</a>
-package.</h4>
-</div>
-<div id="this-included-using-vcftools-to-first-create-012-files-which-are-required-for-downsampling." class="section level4">
-<h4>This included using vcftools to first create 012 files which are
-required for downsampling.</h4>
-</div>
-<div id="these-files-are-in-the-vcf_out-folder." class="section level4">
-<h4>These files are in the VCF_out folder.</h4>
-</div>
-<div id="i-ended-up-downsampling-such-that-i-had-no-individuals-with-13-missing-data.i-retained-212-individuals-80-of-current-samples." class="section level4">
-<h4>I ended up downsampling such that I had no individuals with &gt;13%
-missing data.I retained 212 individuals (80% of current samples).</h4>
-</div>
-<div id="the-output-includes-a-set-of-subsamples-012-files-which-i-imported-back-onto-alpine-with-globus.-these-files-are-in-the-cleaned_indv212_pos3000-folder." class="section level4">
-<h4>The output includes a set of subsamples 012 files, which I imported
+<div id="downsampling" class="section level3">
+<h3>Downsampling</h3>
+<div id="gea-analyses-require-no-missing-data-genotypes-at-every-locus.-therefore-my-first-step-to-downsample-as-much-as-i-could-prior-to-imputing-data." class="section level5">
+<h5>GEA analyses require no missing data genotypes at every locus.
+Therefore, my first step to downsample as much as I could prior to
+imputing data.</h5>
+<ul>
+<li>I used the <a href="https://github.com/eriqande/genoscapeRtools">genoscapeRtools</a>
+package to downsample.</li>
+<li>First I used vcftools to create 012 files which are required for
+downsampling.</li>
+</ul>
+<pre><code>$vcftools --vcf data/populations.snps.vcf --012
+$mkdir vcf_012 
+$mv out* vcf_012</code></pre>
+<ul>
+<li>These files are in the vcf_012 folder in my data directory for my
+project repository.</li>
+<li>I ended up downsampling such that I had no individuals with &gt;13%
+missing data.</li>
+<li>I retained 212 individuals (80% of current samples).</li>
+<li>The output includes a set of subsamples 012 files, which I imported
 back onto Alpine with Globus. These files are in the
-cleaned_indv212_pos3000 folder.</h4>
-</div>
-<div id="i-then-used-vcftools-keep-to-subsample-my-original-populations.snp.vcf-file." class="section level4">
-<h4>I then used vcftools –keep to subsample my original
-populations.snp.vcf file.</h4>
-</div>
-<div id="the-downsampled-.vcf-file-is-in-the-downsampled-folder." class="section level4">
-<h4>The downsampled .vcf file is in the Downsampled folder.</h4>
+cleaned_indv212_pos3000 folder.</li>
+<li>I then used vcftools –keep to subsample my original
+populations.snp.vcf file.</li>
+</ul>
+<pre><code>$vcftools --vcf data/populations.snps.vcf --012
+$mkdir vcf_012 
+$mv out* vcf_012</code></pre>
+<ul>
+<li>The downsampled .vcf file is in the Downsampled folder.</li>
+</ul>
+<pre><code>$vcftools --vcf populations.snps.vcf --out Downsampled/cleaned_212I_3KP  --keep cleaned_indv212_pos30000/cleaned_indv212_pos30000.012.indv --positions cleaned_indv212_pos30000/cleaned_indv212_pos30000.012.pos --recode</code></pre>
 </div>
 </div>
 <div id="gea-in-r" class="section level3">
 <h3>GEA in R</h3>
-<div id="i-conducted-two-types-of-gea-analysis-in-r-studio-lfmm-and-rda." class="section level4">
-<h4>I conducted two types of GEA analysis in R studio; LFMM and
-RDA.</h4>
+<div id="i-conducted-two-types-of-gea-analysis-in-r-studio-lfmm-and-rda." class="section level5">
+<h5>I conducted two types of GEA analysis in R studio; LFMM and
+RDA.</h5>
 </div>
-<div id="i-followed-the-script-developed-by-brenna-forester-to-conducuct-the-geas." class="section level4">
-<h4>I followed the <a href="https://bookdown.org/hhwagner1/LandGenCourse_book/WE_11.html#WE_11">script</a>
-developed by Brenna Forester to conducuct the GEA’s.</h4>
+<div id="i-followed-the-script-developed-by-brenna-forester-to-conducuct-the-geas." class="section level5">
+<h5>I followed the <a href="https://bookdown.org/hhwagner1/LandGenCourse_book/WE_11.html#WE_11">script</a>
+developed by Brenna Forester to conducuct the GEA’s.</h5>
 </div>
-<div id="the-individual-scripts-for-the-lfmm-and-rda-that-i-performed-are-in-the-scripts-folder." class="section level4">
-<h4>The individual scripts for the LFMM and RDA that I performed are in
-the Scripts folder.</h4>
+<div id="the-individual-scripts-for-the-lfmm-and-rda-that-i-performed-are-in-the-scripts-folder." class="section level5">
+<h5>The individual scripts for the LFMM and RDA that I performed are in
+the Scripts folder.</h5>
 </div>
-<div id="prior-to-conducting-the-analyses-i-cleaned-the-bd-data-and-genetic-data-such-that-only-samples-in-both-data-sets-were-included." class="section level4">
-<h4>Prior to conducting the analyses, I cleaned the <em>Bd</em> data and
+<div id="prior-to-conducting-the-analyses-i-cleaned-the-bd-data-and-genetic-data-such-that-only-samples-in-both-data-sets-were-included." class="section level5">
+<h5>Prior to conducting the analyses, I cleaned the <em>Bd</em> data and
 genetic data such that only samples in both data sets were
-included.</h4>
+included.</h5>
 </div>
-<div id="i-used-a-simple-imputation-method-in-r-that-used-the-most-common-genotype-at-a-locus-to-impute-the-missing-genotypes." class="section level4">
-<h4>I used a simple imputation method in R that used the most common
-genotype at a locus to impute the missing genotypes.</h4>
+<div id="i-used-a-simple-imputation-method-in-r-that-used-the-most-common-genotype-at-a-locus-to-impute-the-missing-genotypes." class="section level5">
+<h5>I used a simple imputation method in R that used the most common
+genotype at a locus to impute the missing genotypes.</h5>
 </div>
 </div>
 <div id="results" class="section level3">
 <h3>Results</h3>
-<div id="the-lfmm-for-first-year-since-first-bd-detection-yielded-no-candidate-loci-while-the-lfmm-for-bd-prevalence-yielded-14-snps" class="section level4">
-<h4>The LFMM for first year since first <em>Bd</em> detection yielded no
+<div id="the-lfmm-for-first-year-since-first-bd-detection-yielded-no-candidate-loci-while-the-lfmm-for-bd-prevalence-yielded-14-snps" class="section level5">
+<h5>The LFMM for first year since first <em>Bd</em> detection yielded no
 candidate loci, while the LFMM for <em>Bd</em> prevalence yielded 14
-SNP’s</h4>
+SNP’s</h5>
 </div>
-<div id="the-rda-yielded-549-snps-which-included-all-snps-from-the-lfmm." class="section level4">
-<h4>The RDA yielded 549 SNP’s, which included all SNP’s from the
-LFMM.</h4>
-<p>###File structure ####ANBO_data:</p>
+<div id="the-rda-yielded-549-snps-which-included-all-snps-from-the-lfmm." class="section level5">
+<h5>The RDA yielded 549 SNP’s, which included all SNP’s from the
+LFMM.</h5>
+</div>
+</div>
+<div id="file-structure" class="section level3">
+<h3>File structure</h3>
+<div id="anbo_data" class="section level4">
+<h4><a href="https://github.com/shanellewiks/ANBO_congen/tree/main/ANBO_data">ANBO_data</a>:</h4>
+<ul>
+<li>Bd_BodyCondition_clean.csv: Csv file with boreal toad individuals
+and their correponding Bd and condy condiion data</li>
+<li>Bd_BodyCondition_clean.xml: Excel file of the same data</li>
+<li>mec17175-sup-0001-appendixs1.docx: Supplementary materials from
+Trumbo et al. 2023</li>
+</ul>
+</div>
+<div id="scriptsr-scripts" class="section level4">
+<h4><a href="https://github.com/shanellewiks/ANBO_congen/tree/main/Scripts">Scripts</a>:R
+scripts</h4>
+<ul>
+<li>Downsampling_genoscapeRtools.R: genoscapeRtools script for
+downsampling</li>
+<li>LFMM.R: Script for running LFMM</li>
+<li>RDA.R: Script for running RDA</li>
+<li>Datacheck.R: Please ignore. Personal script for checking data.</li>
+</ul>
+</div>
+</div>
+<div id="challenges" class="section level3">
+<h3>Challenges</h3>
+<div id="although-i-decided-not-to-do-a-gwas-due-to-the-lack-of-sufficient-sample-size-this-was-also-in-part-being-unable-to-impute-my-files-and-obtain-output-files-that-would-let-me-run-a-gwas." class="section level5">
+<h5>Although I decided not to do a GWAS due to the lack of sufficient
+sample size, this was also in part being unable to impute my files and
+obtain output files that would let me run a GWAS.</h5>
+</div>
+<div id="my-first-attempt-at-imputing-was-using-the-grur-package-which-was-developed-to-impute-radseq-data.-unfortunately-this-package-and-some-of-its-dependencies-are-no-longer-supported-in-r.-even-compiling-packages-locally-proved-impossible-for-me." class="section level5">
+<h5>My first attempt at imputing was using the <a href="https://thierrygosselin.github.io/grur/articles/rad_genomics_computer_setup.html">grur
+package</a>, which was developed to impute Radseq data. Unfortunately,
+this package and some of its dependencies are no longer supported in R.
+Even compiling packages locally proved impossible for me.</h5>
+</div>
+<div id="i-then-tried-to-impute-using-beagle-4.1.-once-again-this-proved-challenging-since-the-loci-in-the-vcf-file-were-not-sorted-in-order.-after-some-attempts-at-sorting-this-including-using-bcftools-sort-and-some-awk-use-i-reached-another-dead-end." class="section level5">
+<h5>I then tried to impute using <a href="https://faculty.washington.edu/browning/beagle/b4_1.html">Beagle
+4.1</a>. Once again, this proved challenging since the loci in the vcf
+file were not sorted in order. After some attempts at sorting this
+(including using BCFtools sort and some awk use), I reached another dead
+end.</h5>
+</div>
+<div id="my-final-attempt-at-imputing-was-using-linkimputer.-this-seemed-to-work-at-the-start-however-this-gave-me-several-errors-and-also-proved-to-be-a-dead-end." class="section level5">
+<h5>My final attempt at imputing was using <a href="https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-3873-5">LinkImputer</a>.
+This seemed to work at the start, however, this gave me several errors
+and also proved to be a dead end.</h5>
+</div>
+<div id="the-simple-imputation-in-r-for-gea-using-the-most-common-genotypes-was-helpful-for-those-analyses.-however-i-couldnt-find-a-way-to-export-these-filed-into-the-input-files-required-to-run-gwas-.vsfs-or-.ped-files-from-plink." class="section level5">
+<h5>The simple imputation in R for GEA using the most common genotypes
+was helpful for those analyses. However, I couldn’t find a way to export
+these filed into the input files required to run GWAS (.vsf’s or .ped
+files from Plink).</h5>
+</div>
+<div id="although-i-am-disappointed-that-i-could-not-run-a-gwas-for-this-project-i-now-have-some-experience-doing-gea-which-is-an-analysis-i-will-actually-be-doing-for-my-dissertation-so-i-have-some-practice-now" class="section level5">
+<h5>Although I am disappointed that I could not run a GWAS for this
+project, I now have some experience doing GEA, which is an analysis I
+will actually be doing for my dissertation, so I have some practice
+now!</h5>
 </div>
 </div>
 </div>

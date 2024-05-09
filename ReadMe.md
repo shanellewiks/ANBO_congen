@@ -10,13 +10,25 @@
 ##### GEA analyses require no missing data genotypes at every locus. Therefore, my first step to downsample as much as I could prior to imputing data.
 * I used the [genoscapeRtools](https://github.com/eriqande/genoscapeRtools) package to downsample.
 * First I used vcftools to create 012 files which are required for downsampling. 
-* These files are in the VCF_out folder.
+```{}
+$vcftools --vcf data/populations.snps.vcf --012
+$mkdir vcf_012 
+$mv out* vcf_012
+```
+* These files are in the vcf_012 folder in my data directory for my project repository.
 * I ended up downsampling such that I had no individuals with >13% missing data.
 * I retained 212 individuals (80% of current samples).
 * The output includes a set of subsamples 012 files, which I imported back onto Alpine with Globus. These files are in the cleaned_indv212_pos3000 folder.
 * I then used vcftools --keep to subsample my original populations.snp.vcf file. 
+```{}
+$vcftools --vcf data/populations.snps.vcf --012
+$mkdir vcf_012 
+$mv out* vcf_012
+```
 * The downsampled .vcf file is in the Downsampled folder.
-
+```{}
+$vcftools --vcf populations.snps.vcf --out Downsampled/cleaned_212I_3KP  --keep cleaned_indv212_pos30000/cleaned_indv212_pos30000.012.indv --positions cleaned_indv212_pos30000/cleaned_indv212_pos30000.012.pos --recode
+```
 ### GEA in R
 ##### I conducted two types of GEA analysis in R studio; LFMM and RDA.
 ##### I followed the [script](https://bookdown.org/hhwagner1/LandGenCourse_book/WE_11.html#WE_11) developed by Brenna Forester to conducuct the GEA's.
@@ -47,3 +59,5 @@
 ##### My final attempt at imputing was using [LinkImputer](https://bmcgenomics.biomedcentral.com/articles/10.1186/s12864-017-3873-5). This seemed to work at the start, however, this gave me several errors and also proved to be a dead end. 
 ##### The simple imputation in R for GEA using the most common genotypes was helpful for those analyses. However, I couldn't find a way to export these filed into the input files required to run GWAS (.vsf's or .ped files from Plink).
 ##### Although I am disappointed that I could not run a GWAS for this project, I now have some experience doing GEA, which is an analysis I will actually be doing for my dissertation, so I have some practice now!
+
+
