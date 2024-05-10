@@ -46,7 +46,7 @@ genind.imp
 ####3) Importing the environmental data ####
 #these are the predictor variables in an RDA
 
-bd_bodycon<- read_csv(here("Bd_BodyCondition_clean.csv")) 
+bd_bodycon<- read_csv(here("ANBO_data", "Bd_BodyCondition_clean.csv")) 
 view(bd_bodycon)
 
 #clean the data 

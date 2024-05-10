@@ -45,33 +45,24 @@ sum(is.na(gen.imp)) #no more Na's
 genind.imp <- df2genind(gen.imp, sep = ",")
 genind.imp
 
-
 ####3) Importing the environmental data ####
 #these are the predictor variables in an RDA
 
-bd_bodycon<- read_csv(here("Bd_BodyCondition_clean.csv")) 
+bd_bodycon<- read_csv(here("ANBO_data", "Bd_BodyCondition_clean.csv")) 
 view(bd_bodycon)
 
 #clean the data 
 bd_clean<- bd_bodycon %>% 
   mutate(Individual = as.character(Individual)) %>% #making sure sample id's are all characters and not factors 
-  filter(!is.na(first_bd)) #filter missing env data
+  filter(!is.na(first_bd)) %>%  #filter missing env data
+  filter(prevalence != "Unknown")  #filter unknowns from Wyoming 
 view(bd_clean)
 
 ####4) Subset data ####
 
 #what samples are in the bd data that aren't in the rad data 
-radsind<- rownames(gen.imp) #rad seq samplenames
+radsind<- rownames(genind.imp@tab) #rad seq samplenames
 bdind<- bd_clean$Individual #body condition sample individuals
-
-diff_bd<- setdiff(bdind,radsind)
-view(diff_bd)
-#There are 21 samples in the bd data that aren't in the rad data
-
-#what samples are in the rad data that aren't in the bd data 
-diff_rad<- setdiff(radsind,bdind)
-view(diff_rad)
-#There are 2 samples in the bd data that aren't in the rad data
 
 #what samples are in common
 common <- intersect(bdind, radsind)
@@ -89,29 +80,10 @@ genind.imp.clean<- genind.imp[common]
 genind.imp.clean
 
 #check if they are identical 
-identical(bd_rownames, radrownames)
-#>TRUE
+bdrownames<-bd_clean$Individual
+radrownames<- rownames(genind.imp.clean@tab)
 
-#also forgot that I have to filter out Wyoming since there's no prevalence data for it
-#I'll clean the data up a bit while I'm at it to give shorter names
-bd_clean<-bd_clean %>% 
-  filter(prevalence != "Unknown") %>% 
-  mutate(prevalence=as.numeric(prevalence)) %>% 
-  rename(fbd =first_bd,
-         prev = prevalence)
-view(bd_clean)
-keep <- bd_clean$Individual
-
-#filtering the genind data
-
-gen.imp.clean<-genind.imp.clean[keep]
-gen.imp.clean
-
-#check if they are identical 
-radsind<- rownames(gen.imp.clean) #rad seq samplenames
-bdind<- bd_clean$Individual #body condition sample individuals
-
-identical(bd_rownames, radrownames)
+identical(radrownames, bdrownames)
 #>TRUE
 
 
